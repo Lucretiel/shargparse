@@ -94,6 +94,8 @@ provided on the original argument set. Numbers and strings are printed as they
 are. Boolean values (including cases where the argument is a flag with no
 argument) are reperesented as True or False. None isn't printed at all. Lists
 are printed as just their contents, separated by spaces (no [] or '' or commas).
+Note that, while all the arguments are guarenteed to be sent, the order in which
+they are sent is arbitrary.
 
 argparse configuration
 ======================
