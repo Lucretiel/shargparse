@@ -1,4 +1,4 @@
-output=$( ./pyparse.py "$@" <<< "$arg_spec" ) || { echo "$output"; exit; }
+output=$( pyparse.py "$@" <<< "$arg_spec" ) || { echo "$output"; exit; }
 
 eval "$output"
 unset output
