@@ -14,7 +14,6 @@ Let's get started with a simple example:
     #myscript.sh
     arg_spec="
         :parser:
-            prog: $(basename $0)
             desctiption: This is a description of my shell script
         :argument:
             --arg1 -a
