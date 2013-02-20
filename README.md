@@ -158,6 +158,4 @@ http://docs.python.org/2/library/argparse.html for more details.
 TODO
 ====
 
--   Truely sourceable companion bash script that takes care of exiting or assigning
-    variables as nessesary.
 -   More advanced argparse stuff, like mutual exclusion
