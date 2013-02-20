@@ -1,12 +1,14 @@
-old_arg_spec="$arg_spec"
+_old_arg_spec_="$arg_spec"
 arg_spec="
 :parser:
     prog: $( basename $0 )
 $arg_spec
 "
 
-output=$( pyparse.py "$@" <<< "$arg_spec" ) || { echo "$output"; exit; }
+_parse_result_=$( pyparse.py "$@" <<< "$arg_spec" ) || { echo "$_parse_result_"; exit; }
 
-eval "$output"
-unset output
-arg_spc="$old_arg_spec"
+eval "$_parse_result_"
+unset _parse_result_
+
+arg_spc="$_old_arg_spec_"
+unset "_old_arg_spec_"
