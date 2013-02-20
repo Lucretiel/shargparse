@@ -42,6 +42,10 @@ Let's get started with a simple example:
     EOF
     #end of myscript.sh
 
+    # Note that, while this example will simply print the parsed arguments to
+    # stdout, it's just as easy to pipe the command into
+    `'while read argument_name argument_value;...`'
+
 Running the script:
 
     shell> myscript.sh -b "here's an argument!" -eg /etc/config.cfg
