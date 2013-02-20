@@ -5,6 +5,7 @@ import argparse
 import sys
 import re
 import ast
+import string
 
 def generate_pattern(arguments):
 	return re.compile('({}):\s*(\S.*)'.format('|'.join(arguments)))
@@ -87,6 +88,26 @@ def create_parser(input_lines):
 
 	return constructed_parser
 
+def make_variable_name(var):
+	valid_chars = string.letters + string.digits + '_'
+
+	def replace_char(char):
+		if char == '-':
+			return '_'
+		elif char in valid_chars:
+			return char
+		return ''
+
+	return ''.join(map(replace_char, var))
+
+def make_variable_data(var):
+	if var is None:
+		return ''
+	elif isinstance(var, list):
+		return ' '.join(map(str, var))
+	else:
+		return str(var)
+
 def main():
 	parser = create_parser(sys.stdin)
 
@@ -95,11 +116,11 @@ def main():
 	except SystemExit:
 		exit(10)
 
-	for argument_name, argument_value in parsed_arguments.items():
-		if argument_value is None:
-			argument_value = ''
+	for argument_name, argument_data in parsed_arguments.items():
+		argument_name = make_variable_name(argument_name)
+		argument_data = make_variable_data(argument_data)
 
-		print(argument_name, argument_value, sep=' ')
+		print("{}='{}';".format(argument_name, argument_data))
 
 	exit(0)
 
