@@ -44,7 +44,7 @@ Let's get started with a simple example:
 
     # Note that, while this example will simply print the parsed arguments to
     # stdout, it's just as easy to pipe the command into
-    `'while read argument_name argument_value;...`'
+    # while read argument_name argument_value;...
 
 Running the script:
 
