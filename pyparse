@@ -100,13 +100,16 @@ def make_variable_name(var):
 
 	return ''.join(map(replace_char, var))
 
+def escape_quotes(var):
+	return re.sub('"', '\\"', str(var))
+
 def make_variable_data(var):
 	if var is None:
 		return ''
 	elif isinstance(var, list):
-		return ' '.join(map(str, var))
+		return ' '.join(map(escape_quotes, var))
 	else:
-		return str(var)
+		return escape_quotes(var)
 
 def main():
 	parser = create_parser(sys.stdin)
@@ -120,7 +123,7 @@ def main():
 		argument_name = make_variable_name(argument_name)
 		argument_data = make_variable_data(argument_data)
 
-		print("{}='{}';".format(argument_name, argument_data))
+		print('{}="{}";'.format(argument_name, argument_data))
 
 	exit(0)
 
