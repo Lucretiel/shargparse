@@ -131,7 +131,7 @@ These corrospond directly with their equivelents in the ArgumentParser init. The
 `description` and `epilog` parameters are used in usage output, and are printed
 before and after the argument descriptions, respectively. `prog` controls the
 name of the program that appears in the usage message, and should almost always
-be argv\[0\] ($0 or $(basename $0) for you script writers).
+be argv\[0\] (`$0` or `$(basename $0)` for you script writers).
 
 argument section
 ----------------
