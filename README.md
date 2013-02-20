@@ -2,8 +2,7 @@ pyparse
 =======
 
 pyparse brings the power of argparse to your shell scripts. It is designed to be
-an extremely simple program you can embed into your scripts. You need to be
-familiar with python's argparse to use it.
+an extremely simple program you can embed into your scripts.
 
 Example
 =======
