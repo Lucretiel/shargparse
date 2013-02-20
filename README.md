@@ -123,9 +123,9 @@ You can have as many parser sections as you want, but once the configuration is
 read, they will all be merged together, with parameters in later parser sections
 overriding those in earlier ones. The parser section supports these parameters:
 
-    -`description:`
-    -`epilog:`
-    -`prog:`
+-`description:`
+-`epilog:`
+-`prog:`
 
 These corrospond directly with their equivelents in the ArgumentParser init. The
 `description` and `epilog` parameters are used in usage output, and are printed
