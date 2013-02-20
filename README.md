@@ -12,15 +12,17 @@ Let's get started with a simple example:
     #/bin/sh
 
     #myscript.sh
-    cat << EOF | pyparse "$@"
+    arg_spec="
         :parser:
             prog: $(basename $0)
             desctiption: This is a description of my shell script
         :argument:
             --arg1 -a
+            default: arg1's default!
 
         :argument:
             --arg2 -b
+            default: arg2's default!
 
         :argument:
             --flag1 -e
@@ -37,19 +39,28 @@ Let's get started with a simple example:
         :argument:
             config-file
 
-        :end:
-    EOF
+        :end:"
+        
+    source pyparse "$@"
+    
+    echo "arg1: $arg1"
+    echo "arg2: $arg2"
+    echo "config_file: $config_file"
+    echo "flag1: $flag1"
+    echo "flag2: $flag2"
+    echo "flag3: $flag3"
+    
     #end of myscript.sh
 
 Running the script:
 
     shell> myscript.sh -b "here's an argument!" -eg /etc/config.cfg
-    arg1="";
-    arg2="here's an argument";
-    config-file="/etc/config.cfg";
-    flag1="True";
-    flag2="False";
-    flag3="True";
+    arg1: arg1's default!
+    arg2: here's an argument!
+    config-file: /etc/config.cfg
+    flag1: True
+    flag2: False
+    flag3: True
     shell> myscript.sh -h
     usage: myscript.sh [-h] [--arg1 ARG1] [--arg2 ARG2] [--flag1] [--flag2]
                        config-file
