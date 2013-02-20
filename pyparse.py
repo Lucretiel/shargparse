@@ -4,7 +4,6 @@ from __future__ import print_function
 import argparse
 import sys
 import re
-import ast
 import string
 
 def generate_pattern(arguments):
@@ -39,7 +38,7 @@ class ArgumentParameter:
 	def update_line(self, line):
 		match = self.pattern.match(line)
 		if match:
-			self.params[match.group(1)] = ast.literal_eval(match.group(2))
+			self.params[match.group(1)] = eval(match.group(2))
 		else:
 			self.names.extend(line.split())
 
