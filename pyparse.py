@@ -106,8 +106,12 @@ def escape_quotes(var):
 def make_variable_data(var):
 	if var is None:
 		return ''
+	elif var is True:
+		return 'true'
+	elif var is False:
+		return 'false'
 	elif isinstance(var, list):
-		return ' '.join(map(escape_quotes, var))
+		return ' '.join(map(make_variable_data, var))
 	else:
 		return escape_quotes(var)
 
