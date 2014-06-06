@@ -1,7 +1,7 @@
-pyparse
+shargparse
 =======
 
-pyparse brings the power of argparse to your shell scripts. It is designed to be
+shargparse brings the power of argparse to your shell scripts. It is designed to be
 an extremely simple program you can embed into your scripts.
 
 Example
@@ -40,7 +40,7 @@ Let's get started with a simple example:
 
         :end:"
         
-    source pyparse "$@"
+    source shargparse "$@"
     
     echo "arg1: $arg1"
     echo "arg2: $arg2"
@@ -88,7 +88,7 @@ Running the script:
 Usage
 =====
 
-The basic usage of pyparse is very simple. Call the script with your scripts
+The basic usage of shargparse is very simple. Call the script with your scripts
 arguments exactly as you received them, and pipe into it the argparse
 configuration you want to use. The script will exit with a 0 return code if it
 successfully parses the arguments and is ready to return them, and a 10 if an
@@ -109,7 +109,7 @@ are guarenteed to be sent, the order in which they are sent is arbitrary.
 argparse configuration
 ======================
 
-The argparse configuration is a custom syntax designed specifically for pyparse.
+The argparse configuration is a custom syntax designed specifically for shargparse.
 It is designed to be easy to construct on the fly, and send into the script
 with just an echo or cat command.
 
