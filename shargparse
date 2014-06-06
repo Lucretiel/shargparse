@@ -4,7 +4,7 @@ arg_spec="
 $arg_spec
 "
 
-_parse_result_=$( pyparse.py "$@" <<< "$arg_spec" ) || { echo "$_parse_result_"; exit; }
+_parse_result_=$( shargparse.py "$@" <<< "$arg_spec" ) || { echo "$_parse_result_"; exit; }
 
 eval "$_parse_result_"
 unset _parse_result_
